@@ -1,0 +1,74 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang22 Quest\'f5es relacionadas a C#\par
+1. Orienta\'e7\'e3o a Objetos:\par
+\f1\bullet  Explique o conceito de heran\f0\'e7a m\'faltipla e como C# aborda esse cen\'e1rio.\par
+Heran\'e7a multipla \'e9 quando uma classe herda caracter\'edsticas de multiplas classes. Exemplos muito comuns s\'e3o veiculo hibridos que possuem caracter\'edsticas de veiculos aquatico e terrestre ou um triatleta que possui caracteristicas de um nadador, corredor e ciclista. Em C# Dot NET n\'e3o existe a implementa\'e7\'e3o de heran\'e7a multiplas para as classes diretamente mas \'e9 poss\'edvel implementar a heran\'e7a multipla atrav\'e9s de interfaces. \par
+\f1\bullet  Explique o polimorfismo em C# e forne\f0\'e7a um exemplo pr\'e1tico de como ele pode ser implementado.\par
+\'c9 a capacidade que classes que herdam de uma classe base tem de modificar seus comportamentos, existem dois conceitos muito importantes no polimorfismo que s\'e3o chamados de sobrecarga e sobrescrita. Sobrecarga seria a capacidade de mudar uma a\'e7\'e3o (fun\'e7\'e3o) atrav\'e9s da mudan\'e7a de par\'e2metros passados seja por quantidade ou tipo do par\'e2metro passado, a sobrescrita seria a capacidade de sobrescrever a a\'e7\'e3o (fun\'e7\'e3o) da classe base por uma a\'e7\'e3o da pr\'f3pria classe.\par
+Exemplos:\par
+Sobrecarga:\par
+public class Atleta \{\par
+\tab public void Correr() \{\par
+\tab\tab Console.writeLine("Atleta correu.");\par
+\tab\}\par
+\par
+ \tab public void Correr(int percurso) \{\par
+\tab\tab Console.WriteLine($"Atleta correu por <\{percurso\}> km.");\par
+\tab\}\par
+\}\par
+Sobrescrita:\par
+public class Atleta \{\par
+\tab public virtual void Mover \{\}\par
+\}\par
+public class Corredor : Atleta \{\par
+\tab public override void Mover \{\par
+\tab\tab Console.writeLine("Atleta est\'e1 correndo.");\par
+\tab\}\par
+\}\par
+2. SOLID:\par
+\f1\bullet  Descreva o princ\f0\'edpio da Responsabilidade \'danica (SRP) e como ele se aplica em um contexto de desenvolvimento C#.\par
+\'c9 o principio que diz que uma classe deve possuir apenas uma responsabilidade ou seja a classe deve ter apenas um motivo para mudar. Em C# isso \'e9 importante para n\'e3o sobrecarregar a classe com responsabilidades que a classe n\'e3o deveria ter e diminuir o risco de bugs que podem afetar a classe como um todo. \par
+\f1\bullet  Como o princ\f0\'edpio da invers\'e3o de depend\'eancia (DIP) pode ser aplicado em um projeto C# e como isso beneficia a manuten\'e7\'e3o do c\'f3digo?\par
+Com a implementa\'e7\'e3o de interfaces para as classes, pois passamos a depender de abstra\'e7\'f5es e paramos de depender de implementa\'e7\'f5es, isso deixa a aplica\'e7\'e3o mais modular, facilitando a manuten\'e7\'e3o do c\'f3digo e deixando mais pr\'e1tico para extender e realizar testes do c\'f3digo.\par
+3. Entity Framework (EF):\par
+\f1\bullet  Como o Entity Framework gerencia o mapeamento de objetos para o banco de\f0\lang1046  \f1\lang22 dados e vice-versa?\par
+\f0\lang1046 Ele \'e9 um ORM ou seja ele faz o mapeamento atrav\'e9s das classes para acesso ao banco de dados, ele permite a cria\'e7\'e3o do banco de dados baseando no c\'f3digo fonte caso opte pelo uso do Code First mais o migrations mas tamb\'e9m pode ser feito o mapeamento atrav\'e9s de um banco j\'e1 existente necessitando uma aten\'e7\'e3o maior para que as classes estejam de acordo com o banco de dados.\f1\lang22\par
+\bullet  Como otimizar consultas no Entity Framework para garantir um desempenho\f0\lang1046  \f1\lang22 eficiente em grandes conjuntos de dados?\par
+\f0\lang1046 Pode ser feito atrav\'e9s do express\'f5es lambda ou consultas linq lembrando que podemos aplicar filtros como por exemplo a express\'e3o 'where' e podemos selecionar o que queremos que seja retornado com a express\'e3o 'select' no final ao executar essa opera\'e7\'e3o com um comando essa consulta \'e9 toda convertida em c\'f3digo sql e retornada para n\'f3s como o obeto mapeado.\f1\lang22\par
+4. WebSockets:\par
+\bullet  Explique o papel dos WebSockets em uma aplica\f0\'e7\'e3o C# e como eles se comparam \'e0s solicita\'e7\'f5es HTTP tradicionais.\par
+As requisi\'e7\'f5es HTTP tradicionais depois de retornarem as informa\'e7\'f5es ao usu\'e1rio final essa conex\'e3o \'e9 fechada, com o uso de WebSockets essas conex\'e3o ficam abertas e sendo escutadas o tempo todo para quando tenha uma atualiza\'e7\'e3o notificar o usu\'e1rio para que usu\'e1rio estea atualizado em tempo real. \par
+\f1\bullet  Quais s\f0\'e3o as principais considera\'e7\'f5es de seguran\'e7a ao implementar uma comunica\'e7\'e3o baseada em WebSockets em uma aplica\'e7\'e3o C#?\par
+Usar o protocolo wss ao inv\'e9s do ws, evitar o tunelamento isso permite ataques XSS, validar do lado servidor, implementar mecanismos de autentica\'e7\'e3o, habilitar nos headers somente sites de origem que forem definidos pela aplica\'e7\'e3o.\par
+5. Arquitetura:\par
+\f1\bullet  Descreva a diferen\f0\'e7a entre arquitetura monol\'edtica e arquitetura de microsservi\'e7os. Qual seria sua escolha ao projetar uma aplica\'e7\'e3o C#?\par
+A arquitetura monol\'edtica \'e9 mais voltada para aplica\'e7\'f5es que tem necessidade de a\'e7\'f5es mais complexas e que necessitam de v\'e1rios passos al\'e9m de n\'e3o poderem ser modularizadas, costumam ser de rapida implementa\'e7\'e3o mas manuten\'e7\'e3o mais complexa. A arquitetura de microservi\'e7os costuma ser mais modularizada ou seja particionada, costuma ter mais servi\'e7os mas com menos responsabilidades, seus servi\'e7os s\'e3o mais reaproveit\'e1veis por terem responsabilidades mais simples  e serem menores, costumam ser de f\'e1cil manuten\'e7\'e3o por ter menos responsabilidade mas em compens\'e3o se escreve mais por ser mais modular. Geralmente quando poss\'edvel opto por microservi\'e7os mas depende muito da necessidade do projeto. \par
+\f1\bullet  Como voc\f0\'ea escolheria entre a arquitetura de microsservi\'e7os e a arquitetura monol\'edtica ao projetar uma aplica\'e7\'e3o C# que precisa ser altamente escal\'e1vel?\par
+Os dois s\'e3o escal\'e1veis, no caso o que dita mais na escolha seria a necessidade do cliente.\par
+Teste pr\'e1tico C#\par
+Projeto de Blog Simples:\par
+Descri\'e7\'e3o:\par
+Crie um sistema b\'e1sico de blog onde os usu\'e1rios podem visualizar, criar, editar e excluir\par
+postagens. O projeto deve utilizar os princ\'edpios de orienta\'e7\'e3o a objetos, seguir os princ\'edpios\par
+SOLID, integrar o Entity Framework para manipula\'e7\'e3o de dados e incluir uma comunica\'e7\'e3o\par
+simples usando WebSockets para notificar os usu\'e1rios sobre novas postagens em tempo real.\par
+Requisitos Funcionais:\par
+Autentica\'e7\'e3o: Usu\'e1rios devem ser capazes de se registrar, fazer login.\par
+Gerenciamento de Postagens: Os usu\'e1rios autenticados podem criar postagens, editar suas\par
+pr\'f3prias postagens e excluir postagens existentes.\par
+Visualiza\'e7\'e3o de Postagens: Qualquer visitante do site pode visualizar as postagens existentes.\par
+Notifica\'e7\'f5es em Tempo Real: Implemente um sistema de notifica\'e7\'e3o em tempo real usando\par
+WebSockets para informar os usu\'e1rios sobre novas postagens assim que s\'e3o publicadas.\par
+Requisitos T\'e9cnicos:\par
+Utilize a arquitetura monol\'edtica organizando as responsabilidades, como autentica\'e7\'e3o,\par
+gerenciamento de postagens e notifica\'e7\'f5es em tempo real.\par
+Aplique os princ\'edpios SOLID, especialmente o princ\'edpio da Responsabilidade \'danica (SRP) e o\par
+princ\'edpio da Invers\'e3o de Depend\'eancia (DIP).\par
+Utilize o Entity Framework para interagir com o banco de dados para armazenar informa\'e7\'f5es\par
+sobre usu\'e1rios e postagens.\par
+Implemente WebSockets para notifica\'e7\'f5es em tempo real. Pode ser uma notifica\'e7\'e3o simples\par
+para interface do usu\'e1rio sempre que uma nova postagem \'e9 feita\par
+N\'e3o \'e9 necess\'e1rio implementar interface web.\par
+}
+ 
