@@ -10,3 +10,6 @@ rodar o migrations antes.
 3 - Para executar o WebSocket eu criei duas instâncias uma server e
 outra cliente, executar primeiro o projeto server "WebSocketServer"
 e depois o client "WebSocketClient".
+
+Links uteis:
+  - https://www.c-sharpcorner.com/article/jwt-token-creation-authentication-and-authorization-in-asp-net-core-6-0-with-po/
